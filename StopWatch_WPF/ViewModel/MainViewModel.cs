@@ -1,4 +1,5 @@
-﻿using StopWatch_WPF.Models;
+﻿using StopWatch_WPF.Commands;
+using StopWatch_WPF.Models;
 using StopWatch_WPF.Services;
 
 using System;
@@ -8,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace StopWatch_WPF.ViewModel
@@ -31,6 +33,8 @@ namespace StopWatch_WPF.ViewModel
             }
         }
 
+        public RelayCommand Start { get; set; }
+
         public MainViewModel(ITimerService timerService) 
         {
             _dispatcherTimer = new DispatcherTimer();
@@ -39,7 +43,9 @@ namespace StopWatch_WPF.ViewModel
             _dispatcherTimer.Start();
 
             _stopwatchModel = new StopWatchModel(new Guid("a70cd601-8543-4f5b-a6d9-2d9816a1dc59"));
-            
+
+            Start = new RelayCommand(() => MessageBox.Show("Hello World!"));
+
             //_timerService = timerService;
             //_timerService.AddStopWatch(new StopWatchModel(new Guid("a70cd601-8543-4f5b-a6d9-2d9816a1dc59")));
         }

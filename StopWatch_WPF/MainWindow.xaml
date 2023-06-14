@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:StopWatch_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel>
         <TextBlock 
             x:Name="Text" 
             Text="{Binding CurrentTime}"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="50"/>
-    </Grid>
+
+        <Button Content="Start" Command="{Binding Start}"/>
+    </StackPanel>
 </Window>
